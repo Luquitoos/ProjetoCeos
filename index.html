@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação | Projeto PersonaCrew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slide-aspect-ratio {
+            aspect-ratio: 16 / 9;
+            width: 1920px;
+            height: 1080px;
+            max-width: 95vw;
+            max-height: 95vh;
+            position: relative;
+            background-color: white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 1.5rem;
+            overflow: hidden;
+        }
+        .slides-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        .slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            padding: 4% 6%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide-header {
+            position: absolute;
+            top: 4%;
+            left: 6%;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #3B82F6; /* Blue */
+        }
+        .slide-footer {
+            position: absolute;
+            bottom: 4%;
+            right: 6%;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .ceos-logo-sm {
+            font-weight: 900;
+            color: #1E3A8A; /* Darker Blue */
+        }
+        .ceos-logo-sm span {
+            color: #FBBF24; /* Yellow */
+        }
+        .nav-arrow {
+            display: none;
+        }
+        #progress-bar-container {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 6px;
+            background-color: #e2e8f0;
+            border-radius: 3px;
+            z-index: 10;
+        }
+        #progress-bar {
+            width: 0;
+            height: 100%;
+            background-color: #3B82F6;
+            border-radius: 3px;
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* Custom Styles for elements */
+        .card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border-color: #3B82F6;
+        }
+        .highlight-blue { color: #3B82F6; }
+        .highlight-yellow { color: #FBBF24; }
+        .bg-blue-gradient { background: linear-gradient(135deg, #3B82F6, #60A5FA); }
+        .bg-yellow-gradient { background: linear-gradient(135deg, #FBBF24, #FCD34D); }
+
+        /* Tooltip styles for Scrum Diagram */
+        .scrum-tooltip {
+            position: relative;
+            cursor: pointer;
+        }
+        .scrum-tooltip .tooltip-text {
+            visibility: hidden;
+            width: 220px;
+            background-color: #1f2937;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 50;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 14px;
+            font-weight: normal;
+            pointer-events: none; /* Allows hover to pass through */
+        }
+        .scrum-tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        #planning-tooltip { bottom: 110%; left: 50%; transform: translateX(-50%); }
+        #daily-tooltip { left: 110%; top: 50%; transform: translateY(-50%); }
+        #review-tooltip { top: 110%; left: 50%; transform: translateX(-50%); }
+        #retro-tooltip { right: 110%; top: 50%; transform: translateY(-50%); }
+
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        <div id="prev-slide" class="nav-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        </div>
+
+        <div class="slide-aspect-ratio">
+            <div class="slides-wrapper">
+                
+                <!-- Slide 1: Capa -->
+                <section class="slide bg-blue-gradient text-white">
+                    <div class="absolute top-8 left-8">
+                        <svg class="h-24 w-auto" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.225 56.904" fill="none"><g clip-path="url(#clip0_intro)"><path d="M34.648 8.88c-2.7-1.4-6.328-3.481-9.663-5.317L5.34 14.992l19.672 11.425c3.67-2.172 7.266-4.3 10.86-6.427q5.113-3.028 10.225-6.058a6.744 6.744 0 0 1 1.319-.668 1.715 1.715 0 0 1 2.343 1.388 9.258 9.258 0 0 1 .072 1.646c.013 7.982-.011 15.963.056 23.944a3.44 3.44 0 0 1-2.064 3.251q-9.143 5.293-18.254 10.64c-.951.555-1.927 1.069-2.848 1.67a3.048 3.048 0 0 1-3.54.016c-5.164-3.049-10.359-6.046-15.544-9.061-1.9-1.106-3.783-2.255-5.72-3.3A3.182 3.182 0 0 1 .025 40.3c.061-2.8-.03-5.613-.025-8.42 0-.578 0 .247 0-1.622 2.2-.026 3.506.869 3.523 2.784.022 2.416.005 4.831.005 7.285L24.971 52.76 46.251 40.4V17.935c-1.749 1.007-3.313 1.88-4.851 2.8-4.819 2.876-9.646 5.739-14.428 8.675a3.314 3.314 0 0 1-3.825.061c-6.9-4.107-13.838-8.16-20.76-12.234-.189-.112-.369-.241-.551-.364-1.855-1.26-1.9-2.653.027-3.82 4.144-2.5 8.349-4.905 12.532-7.342 2.948-1.717 5.917-3.4 8.845-5.145A3.038 3.038 0 0 1 26.51.406Q31.554 3.221 36.585 6.06c.331.187 2.075 1.18 2.306 1.326-.5 1.474-3.041 2.119-4.243 1.494z" fill="#fff"/><path d="M75.837 170.812l-.077-4.18 9.363 5.178.077 4.18Z" fill="#ff9100" transform="translate(-61.835 -136.005)"/><path d="M90.846 218.743l-.077-4.18 6.471 3.709.077 4.18Z" fill="#ff9100" transform="translate(-74.086 -175.126)"/></g><defs><clipPath id="clip0_intro"><path fill="#fff" d="M0 0h50.225v56.904H0z"/></clipPath></defs></svg>
+                    </div>
+                    <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="p" width="100" height="100" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M50 0V100M0 50H100" stroke="white" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#p)"/></svg>
+                    </div>
+                    <div class="text-center z-10">
+                        <div class="mb-6">
+                            <h1 class="text-8xl font-black">CEOS<span>.</span>JR</h1>
+                            <style>h1 span { color: #FBBF24; }</style>
+                        </div>
+                        <p class="text-4xl font-semibold mb-2">Projeto Interno</p>
+                        <h2 class="text-8xl font-bold mb-4 bg-white text-blue-500 px-4 py-2 rounded-lg inline-block shadow-lg">Persona<span class="text-yellow-500">Crew</span></h2>
+                        <p class="text-5xl font-light">Mapeador Inteligente de Currículos</p>
+                        <p class="mt-16 text-2xl opacity-80">Equipe Robin</p>
+                    </div>
+                </section>
+
+                <!-- Slide 2: Resumo Executivo -->
+                <section class="slide">
+                    <div class="slide-header">Problema e Proposta</div>
+                    <div class="w-full text-center">
+                        <h2 class="text-5xl font-bold text-gray-800 mb-6">A triagem de currículos não precisa ser um gargalo.</h2>
+                        <p class="text-2xl text-gray-600 max-w-5xl mx-auto mb-12">Identificamos que a triagem manual consome até <span class="font-bold highlight-blue">80% do tempo</span> dos processos seletivos. O PersonaCrew automatiza essa etapa, transformando horas de trabalho em minutos.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                            <div class="card">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 mb-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                <h3 class="text-3xl font-bold text-gray-800">70% mais Rápido</h3>
+                                <p class="text-lg text-gray-500">Reduza o tempo total do processo seletivo, focando em quem realmente importa.</p>
+                            </div>
+                            <div class="card border-2 border-yellow-400 relative">
+                                <div class="absolute -top-4 right-4 bg-yellow-400 text-white text-sm font-bold px-3 py-1 rounded-full">DIFERENCIAL</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 mb-4 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                <h3 class="text-3xl font-bold text-gray-800">Filtre 100 em 10 minutos</h3>
+                                <p class="text-lg text-gray-500">Com nosso sistema de personas, analise centenas de currículos em minutos.</p>
+                            </div>
+                            <div class="card">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 mb-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                <h3 class="text-3xl font-bold text-gray-800">Mercado Aquecido</h3>
+                                <p class="text-lg text-gray-500">O setor de HR Tech cresceu <span class="font-bold">7,4%</span> em 2024. Há espaço para soluções focadas em PMEs e EJs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer"><div class="ceos-logo-sm">CEOS<span>.</span>JR</div></div>
+                </section>
+
+                <!-- Slide 3: Fluxo do Usuário -->
+                <section class="slide">
+                    <div class="slide-header">Fluxo do Usuário</div>
+                    <div class="w-full text-center">
+                        <h2 class="text-5xl font-bold text-gray-800 mb-16">Simplicidade do Login à Análise Final</h2>
+                        <div class="flex items-center justify-between w-full text-center px-4">
+                            <!-- SVG do Fluxo -->
+                            <svg viewBox="0 0 800 220" class="w-full">
+                                <defs>
+                                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                                        <polygon points="0 0, 10 3.5, 0 7" fill="#cbd5e1"/>
+                                    </marker>
+                                </defs>
+                                <path d="M 70 110 H 730" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8 8" marker-end="url(#arrowhead)"/>
+                                
+                                <g class="step" transform="translate(70, 110)">
+                                    <circle cx="0" cy="0" r="35" fill="#eef2ff"/>
+                                    <circle cx="0" cy="0" r="30" fill="white"/>
+                                    <g transform="scale(1.25) translate(-12, -12)">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="14 2 14 8 20 8" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="18" x2="12" y2="12" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="9" y1="15" x2="15" y2="15" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <text x="0" y="60" font-size="14" text-anchor="middle">Criar Processo</text>
+                                </g>
+                                <g class="step" transform="translate(202, 110)">
+                                    <circle cx="0" cy="0" r="35" fill="#eef2ff"/>
+                                    <circle cx="0" cy="0" r="30" fill="white"/>
+                                    <g transform="scale(1.25) translate(-12, -12)">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="12" cy="7" r="4" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <text x="0" y="60" font-size="14" text-anchor="middle">Definir Personas</text>
+                                </g>
+                                <g class="step" transform="translate(334, 110)">
+                                    <circle cx="0" cy="0" r="35" fill="#eef2ff"/>
+                                    <circle cx="0" cy="0" r="30" fill="white"/>
+                                    <g transform="scale(1.25) translate(-12, -12)">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="17 8 12 3 7 8" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="3" x2="12" y2="15" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <text x="0" y="60" font-size="14" text-anchor="middle">Upload de CVs</text>
+                                </g>
+                                <g class="step" transform="translate(466, 110)">
+                                    <circle cx="0" cy="0" r="35" fill="#fffbeb"/>
+                                    <circle cx="0" cy="0" r="30" fill="white"/>
+                                    <g transform="scale(1.25) translate(-12, -12)">
+                                        <path d="M12 20v-4" fill="none" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 8V4" fill="none" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M4.93 19.07l2.83-2.83" fill="none" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M16.24 7.76l2.83-2.83" fill="none" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M20 12h-4" fill="none" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8 12H4" fill="none" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M19.07 4.93l-2.83 2.83" fill="none" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.76 16.24l-2.83 2.83" fill="none" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <text x="0" y="60" font-size="14" text-anchor="middle">Processamento</text>
+                                </g>
+                                <g class="step" transform="translate(598, 110)">
+                                    <circle cx="0" cy="0" r="35" fill="#eef2ff"/>
+                                    <circle cx="0" cy="0" r="30" fill="white"/>
+                                    <g transform="scale(1.25) translate(-12, -12)">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="3" y1="10" x2="21" y2="10" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="10" y1="3" x2="10" y2="21" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <text x="0" y="60" font-size="14" text-anchor="middle">Ver Dashboard</text>
+                                </g>
+                                <g class="step" transform="translate(730, 110)">
+                                    <circle cx="0" cy="0" r="35" fill="#eef2ff"/>
+                                    <circle cx="0" cy="0" r="30" fill="white"/>
+                                    <g transform="scale(1.25) translate(-12, -12)">
+                                        <path d="M15 2H9a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.5L15 2z" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14 2v6h6" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="m10 15.5 2 2 4-4" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <text x="0" y="60" font-size="14" text-anchor="middle">Análise Final</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="slide-footer"><div class="ceos-logo-sm">CEOS<span>.</span>JR</div></div>
+                </section>
+
+                <!-- Slide 4: Exemplo de Interface -->
+                <section class="slide bg-gray-100">
+                    <div class="slide-header">Exemplo de Interface</div>
+                    <div class="w-full h-full bg-white rounded-lg shadow-lg flex p-4 gap-4 text-base">
+                        <!-- Sidebar -->
+                        <div class="w-1/5 bg-gray-800 text-white rounded-lg p-6 flex flex-col">
+                            <div class="text-2xl font-black mb-8">Persona<span class="text-yellow-400">Crew</span></div>
+                            <nav class="space-y-3">
+                                <a href="#" class="flex items-center gap-3 p-3 rounded-md bg-blue-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg> Dashboard</a>
+                                <a href="#" class="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg> Upload</a>
+                                <a href="#" class="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg> Personas</a>
+                            </nav>
+                            <div class="mt-auto">
+                                <a href="#" class="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.096 2.572-1.065z" /><circle cx="12" cy="12" r="3" /></svg> Configurações</a>
+                            </div>
+                        </div>
+                        <!-- Main Content -->
+                        <div class="w-4/5 flex flex-col gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4 flex justify-between items-center">
+                                <h3 class="font-bold text-xl text-gray-800">Processo Seletivo 2025.1</h3>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-gray-500 text-lg">Olá, Recrutador</span>
+                                    <div class="w-8 h-8 bg-yellow-400 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex-grow bg-gray-50 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h4 class="font-bold text-xl text-gray-700">Personas</h4>
+                                    <button class="bg-blue-500 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-600">Nova Persona</button>
+                                </div>
+                                <div class="flex gap-4 mb-6">
+                                    <div class="bg-blue-100 border-2 border-blue-500 text-blue-800 p-3 rounded-md text-center flex-1">
+                                        <p class="font-bold text-lg">Dev Frontend Pleno</p>
+                                        <p>React, Next.js, TypeScript</p>
+                                    </div>
+                                    <div class="bg-white border text-gray-600 p-3 rounded-md text-center flex-1">
+                                        <p class="font-bold text-lg">Dev Backend Jr</p>
+                                        <p>Node.js, Express, SQL</p>
+                                    </div>
+                                    <div class="bg-white border text-gray-600 p-3 rounded-md text-center flex-1">
+                                        <p class="font-bold text-lg">UI/UX Designer</p>
+                                        <p>Figma, Prototipação</p>
+                                    </div>
+                                </div>
+                                <!-- Candidate List -->
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center bg-white p-3 rounded-md shadow-sm">
+                                        <p class="font-semibold text-lg text-gray-700">Maria Clara</p>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-32 bg-gray-200 rounded-full h-3"><div class="bg-green-500 h-3 rounded-full" style="width: 92%"></div></div>
+                                            <span class="text-green-600 font-bold text-lg">92%</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center bg-white p-3 rounded-md shadow-sm">
+                                        <p class="font-semibold text-lg text-gray-700">João Pedro</p>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-32 bg-gray-200 rounded-full h-3"><div class="bg-green-500 h-3 rounded-full" style="width: 85%"></div></div>
+                                            <span class="text-green-600 font-bold text-lg">85%</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center bg-white p-3 rounded-md shadow-sm">
+                                        <p class="font-semibold text-lg text-gray-700">Ana Beatriz</p>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-32 bg-gray-200 rounded-full h-3"><div class="bg-yellow-500 h-3 rounded-full" style="width: 71%"></div></div>
+                                            <span class="text-yellow-600 font-bold text-lg">71%</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center bg-gray-200 p-3 rounded-md mt-4">
+                                        <p class="font-semibold text-lg text-gray-500">Sem Persona (3)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 5: Diferencial Competitivo -->
+                <section class="slide">
+                    <div class="slide-header">Diferencial Competitivo</div>
+                    <div class="w-full">
+                        <h2 class="text-5xl font-bold text-gray-800 mb-10 text-center">Foco em Simplicidade e Nicho</h2>
+                        <div class="text-lg">
+                            <div class="grid grid-cols-3 gap-4 font-semibold text-center p-4 bg-gray-100 rounded-t-lg">
+                                <div class="text-2xl">Aspecto</div>
+                                <div class="bg-blue-100 text-blue-700 p-2 rounded-md text-2xl">PersonaCrew</div>
+                                <div class="text-2xl">Concorrentes (Gupy, Kenoby)</div>
+                            </div>
+                            <div class="divide-y divide-gray-200 text-xl">
+                                <div class="grid grid-cols-3 gap-4 items-center p-4 text-center">
+                                    <div class="font-semibold text-left">Foco Principal</div>
+                                    <div class="text-blue-600">Triagem por Personas</div>
+                                    <div class="text-gray-500">ATS Genérico</div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 items-center p-4 text-center">
+                                    <div class="font-semibold text-left">Simplicidade</div>
+                                    <div class="text-blue-600">Interface Intuitiva</div>
+                                    <div class="text-gray-500">Configuração Complexa</div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 items-center p-4 text-center">
+                                    <div class="font-semibold text-left">Custo</div>
+                                    <div class="text-blue-600">Acessível para PMEs e Ejs</div>
+                                    <div class="text-gray-500">Foco Enterprise</div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 items-center p-4 text-center">
+                                    <div class="font-semibold text-left">Setup Inicial</div>
+                                    <div class="text-blue-600">&lt; 10 minutos</div>
+                                    <div class="text-gray-500">Horas / Dias</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer"><div class="ceos-logo-sm">CEOS<span>.</span>JR</div></div>
+                </section>
+
+                <!-- Slide 6: Stack de Tecnologia -->
+                <section class="slide">
+                    <div class="slide-header">Stack de Tecnologia</div>
+                    <div class="w-full">
+                        <h2 class="text-5xl font-bold text-gray-800 mb-6 text-center">Moderna, Escalável e Robusta</h2>
+                        <p class="text-2xl text-gray-600 max-w-5xl mx-auto mb-12 text-center">Uma arquitetura pensada para performance e facilidade de manutenção.</p>
+                        
+                        <!-- Diagrama de Arquitetura -->
+                        <div class="flex justify-around items-center space-x-6 mb-12">
+                            <div class="text-center w-1/4">
+                                <div class="bg-gray-100 p-6 rounded-full inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-blue-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg></div>
+                                <p class="font-bold mt-3 text-xl">Usuário</p>
+                            </div>
+                            
+                            <div class="text-center w-1/4">
+                                <div class="bg-gray-100 p-6 rounded-lg inline-block"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" class="h-14 w-14"/></div>
+                                <p class="font-bold mt-3 text-xl">Frontend</p>
+                                <p class="text-lg text-gray-500">Next.js</p>
+                            </div>
+                            
+                            <div class="text-center w-1/4">
+                                <div class="bg-gray-100 p-6 rounded-lg inline-block"><img src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg" class="h-14 w-auto"/></div>
+                                <p class="font-bold mt-3 text-xl">Backend</p>
+                                <p class="text-lg text-gray-500">Node.js / Express.js</p>
+                            </div>
+                            
+                            <div class="text-center w-1/4">
+                                <div class="bg-gray-100 p-6 rounded-lg inline-block"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" class="h-14 w-14"/></div>
+                                <p class="font-bold mt-3 text-xl">Banco de Dados</p>
+                                <p class="text-lg text-gray-500">PostgreSQL</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="card p-6">
+                                <h4 class="font-bold text-xl mb-2 text-blue-600">Frontend</h4>
+                                <p class="text-base text-gray-600">Next.js, TypeScript, Tailwind CSS, React, Framer Motion</p>
+                            </div>
+                            <div class="card p-6">
+                                <h4 class="font-bold text-xl mb-2 text-blue-600">Backend</h4>
+                                <p class="text-base text-gray-600">Express.js, Prisma ORM, Multer</p>
+                            </div>
+                            <div class="card p-6">
+                                <h4 class="font-bold text-xl mb-2 text-blue-600">Processamento</h4>
+                                <p class="text-base text-gray-600">pdf-parse, mammoth.js</p>
+                            </div>
+                            <div class="card p-6">
+                                <h4 class="font-bold text-xl mb-2 text-blue-600">Infraestrutura</h4>
+                                <p class="text-base text-gray-600">Docker, Vercel, Railway, GitHub</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer"><div class="ceos-logo-sm">CEOS<span>.</span>JR</div></div>
+                </section>
+                
+                <!-- Slide 7: Tecnologias: Frontend -->
+                <section class="slide">
+                    <div class="slide-header">Tecnologias: Frontend</div>
+                    <div class="w-full grid grid-cols-2 gap-12 items-center">
+                        <div class="text-center">
+                             <h3 class="text-4xl font-bold text-gray-800 mb-8">Next.js & Ecossistema</h3>
+                            <div class="grid grid-cols-2 gap-3">
+                               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original-wordmark.svg" class="h-32 w-auto mx-auto"/>
+                               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" class="h-32 w-auto mx-auto"/>
+                               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" class="h-32 w-auto mx-auto"/>
+                               <svg class="h-32 w-auto mx-auto" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 54 33"><g clip-path="url(#prefix__clip0)"><path fill="#38bdf8" fill-rule="evenodd" d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z" clip-rule="evenodd"/></g><defs><clipPath id="prefix__clip0"><path fill="#fff" d="M0 0h54v32.4H0z"/></clipPath></defs></svg>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-8">
+                                <h4 class="text-2xl font-bold text-blue-600 mb-3">Por que utilizar?</h4>
+                                <ul class="space-y-4 text-gray-600 text-lg">
+                                    <li><strong class="text-gray-800">Next.js & React:</strong> Next.js é um framework React que oferece renderização no servidor (SSR), melhorando a performance e o SEO. React permite criar interfaces componentizadas e reutilizáveis.</li>
+                                    <li><strong class="text-gray-800">TypeScript:</strong> Adiciona segurança de tipos ao JavaScript, o que reduz erros, melhora a previsibilidade do código e facilita a colaboração em equipe.</li>
+                                    <li><strong class="text-gray-800">Tailwind CSS & Framer Motion:</strong> Tailwind acelera a estilização com classes utilitárias, enquanto Framer Motion permite criar animações fluidas, melhorando a experiência do usuário.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-yellow-600 mb-3">Possível Alternativa</h4>
+                                <p class="text-lg text-gray-600"><strong>Vue.js + Nuxt.js:</strong> Uma stack igualmente poderosa, conhecida por sua curva de aprendizado suave e excelente documentação.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 8: Tecnologias: Backend -->
+                <section class="slide">
+                    <div class="slide-header">Tecnologias: Backend</div>
+                    <div class="w-full grid grid-cols-2 gap-8 items-center">
+                        <div class="text-center">
+                            <h3 class="text-4xl font-bold text-gray-800">Node.js, Express & Ferramentas</h3>
+                            <div class="grid grid-cols-2 gap-3 my-8">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" class="h-32 w-32 mx-auto"/>
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" class="h-32 w-32 mx-auto"/>
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/prisma/prisma-original.svg" class="h-32 w-32 mx-auto"/>
+                                <svg class="h-32 w-32 mx-auto text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-8">
+                                <h4 class="text-2xl font-bold text-blue-600 mb-3">Por que utilizar?</h4>
+                                <ul class="space-y-4 text-gray-600 text-lg">
+                                    <li><strong class="text-gray-800">Node.js & Express:</strong> Criam um backend rápido, flexível e minimalista. Manter o JavaScript/TypeScript em toda a stack unifica a linguagem e facilita o desenvolvimento.</li>
+                                    <li><strong class="text-gray-800">Prisma ORM:</strong> Simplifica e torna segura a comunicação com o banco de dados, usando TypeScript para autocompletar e validar queries, prevenindo erros comuns de SQL.</li>
+                                    <li><strong class="text-gray-800">Multer:</strong> É um middleware essencial e robusto para o upload de arquivos. Ele gerencia os dados de formulários `multipart/form-data`, facilitando o recebimento e armazenamento dos currículos.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-yellow-600 mb-3">Possível Alternativa</h4>
+                                <p class="text-lg text-gray-600"><strong>TypeORM:</strong> Outro ORM popular para TypeScript, com uma abordagem mais tradicional baseada em classes e decoradores.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 9: Tecnologias: Processamento -->
+                <section class="slide">
+                    <div class="slide-header">Tecnologias: Processamento de Arquivos</div>
+                    <div class="w-full grid grid-cols-2 gap-12 items-center">
+                        <div class="text-center">
+                            <h3 class="text-4xl font-bold text-gray-800">pdf-parse & mammoth.js</h3>
+                            <div class="my-8">
+                                <svg viewBox="0 0 300 150" class="w-full max-w-2xl mx-auto">
+                                    <g>
+                                        <rect x="20" y="10" width="100" height="60" rx="8" fill="#fff" stroke="#ef4444" stroke-width="2"/>
+                                        <text x="70" y="45" text-anchor="middle" font-weight="bold" font-size="18" fill="#ef4444">PDF</text>
+                                    </g>
+                                    <g>
+                                        <rect x="180" y="10" width="100" height="60" rx="8" fill="#fff" stroke="#3b82f6" stroke-width="2"/>
+                                        <text x="230" y="45" text-anchor="middle" font-weight="bold" font-size="18" fill="#3b82f6">DOCX</text>
+                                    </g>
+                                    <path d="M 70 70 L 150 100" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4"/>
+                                    <path d="M 230 70 L 150 100" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4"/>
+                                    <g>
+                                        <rect x="100" y="100" width="100" height="40" rx="8" fill="#10b981"/>
+                                        <text x="150" y="125" text-anchor="middle" font-weight="bold" font-size="16" fill="white">Texto Puro</text>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-8">
+                                <h4 class="text-2xl font-bold text-blue-600 mb-3">Por que utilizar?</h4>
+                                <ul class="space-y-3 text-lg text-gray-600">
+                                    <li class="flex items-start"><svg class="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span><strong class="text-gray-700">Leves e Rápidas:</strong> Bibliotecas focadas e otimizadas para uma única tarefa, garantindo performance.</span></li>
+                                    <li class="flex items-start"><svg class="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span><strong class="text-gray-700">Integração Simples:</strong> Facilmente integráveis ao nosso backend Node.js, sem dependências externas.</span></li>
+                                    <li class="flex items-start"><svg class="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span><strong class="text-gray-700">Custo Zero:</strong> Soluções open-source que não adicionam custos ao projeto.</span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-yellow-600 mb-3">Possível Alternativa</h4>
+                                <p class="text-lg text-gray-600"><strong>Apache Tika:</strong> Uma solução mais robusta que suporta centenas de formatos, mas exige uma infraestrutura mais complexa (geralmente via API).</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 10: Tecnologias: Infraestrutura -->
+                <section class="slide">
+                    <div class="slide-header">Tecnologias: Infraestrutura</div>
+                    <div class="w-full grid grid-cols-2 gap-12 items-center">
+                        <div class="text-center">
+                            <h3 class="text-4xl font-bold text-gray-800">Vercel, Railway & GitHub</h3>
+                            <div class="grid grid-cols-2 gap-3 my-8 items-center">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original.svg" class="h-32 w-32 mx-auto"/>
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" class="h-32 w-32 mx-auto"/>
+                                <svg class="h-32 w-32 mx-auto" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.756 438.175A520.713 520.713 0 0 0 0 489.735h777.799c-2.716-5.306-6.365-10.09-10.045-14.772-132.97-171.791-204.498-156.896-306.819-161.26-34.114-1.403-57.249-1.967-193.037-1.967-72.677 0-151.688.185-228.628.39-9.96 26.884-19.566 52.942-24.243 74.14h398.571v51.909H4.756ZM783.93 541.696H.399c.82 13.851 2.112 27.517 3.978 40.999h723.39c32.248 0 50.299-18.297 56.162-40.999ZM45.017 724.306S164.941 1018.77 511.46 1024c207.112 0 385.071-123.006 465.907-299.694H45.017Z" fill="#100F13"/><path d="M511.454 0C319.953 0 153.311 105.16 65.31 260.612c68.771-.144 202.704-.226 202.704-.226h.031v-.051c158.309 0 164.193.707 195.118 1.998l19.149.706c66.7 2.224 148.683 9.384 213.19 58.19 35.015 26.471 85.571 84.896 115.708 126.52 27.861 38.499 35.876 82.756 16.933 125.158-17.436 38.97-54.952 62.215-100.383 62.215H16.69s4.233 17.944 10.58 37.751h970.632A510.385 510.385 0 0 0 1024 512.218C1024.01 229.355 794.532 0 511.454 0Z" fill="#100F13"/></svg>
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-plain.svg" class="h-32 w-32 mx-auto"/>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-8">
+                                <h4 class="text-2xl font-bold text-blue-600 mb-3">Por que utilizar?</h4>
+                                <ul class="space-y-3 text-lg text-gray-600">
+                                    <li class="flex items-start"><svg class="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span><strong class="text-gray-700">Deploy Simplificado:</strong> Vercel (frontend) e Railway (backend) oferecem integração contínua (CI/CD) via GitHub.</span></li>
+                                    <li class="flex items-start"><svg class="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span><strong class="text-gray-700">Foco no Desenvolvedor:</strong> Abstraem a complexidade da infra, permitindo que a equipe foque no código.</span></li>
+                                    <li class="flex items-start"><svg class="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span><strong class="text-gray-700">Escalabilidade e Custo:</strong> Planos gratuitos generosos e escalabilidade automática conforme a demanda.</span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-yellow-600 mb-3">Possível Alternativa</h4>
+                                <p class="text-lg text-gray-600"><strong>AWS / Google Cloud:</strong> Soluções mais poderosas e customizáveis, mas com uma curva de aprendizado e complexidade de configuração maiores.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Slide 11: Autenticação -->
+                <section class="slide">
+                    <div class="slide-header">Segurança: Autenticação com JWT</div>
+                    <div class="w-full grid grid-cols-2 gap-12 items-center">
+                        <div class="text-center">
+                            <h3 class="text-4xl font-bold text-gray-800">JSON Web Token</h3>
+                            <svg class="h-48 w-48 mx-auto my-8" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="48px" height="48px"><polygon fill="#546e7a" points="21.906,31.772 24.507,29.048 27.107,31.772 27.107,43 21.906,43"/><polygon fill="#f50057" points="17.737,29.058 21.442,28.383 21.945,32.115 15.345,41.199 11.138,38.141"/><polygon fill="#d500f9" points="15.962,24.409 19.355,26.041 17.569,29.356 6.89,32.825 5.283,27.879"/><polygon fill="#29b6f6" points="17.256,19.607 19.042,22.922 15.649,24.554 4.97,21.084 6.577,16.137"/><polygon fill="#00e5ff" points="21.126,16.482 20.623,20.214 16.918,19.539 10.318,10.455 14.526,7.398"/><polygon fill="#546e7a" points="26.094,16.228 23.493,18.952 20.893,16.228 20.893,5 26.094,5"/><polygon fill="#f50057" points="30.262,18.943 26.558,19.618 26.055,15.886 32.654,6.802 36.862,9.859"/><polygon fill="#d500f9" points="32.039,23.59 28.645,21.958 30.431,18.643 41.11,15.174 42.717,20.12"/><polygon fill="#29b6f6" points="30.744,28.393 28.958,25.078 32.351,23.447 43.03,26.916 41.423,31.863"/><polygon fill="#00e5ff" points="26.874,31.518 27.378,27.786 31.082,28.461 37.682,37.545 33.474,40.602"/></svg>
+                        </div>
+                        <div>
+                            <div class="mb-8">
+                                <h4 class="text-2xl font-bold text-blue-600 mb-3">Por que utilizar?</h4>
+                                <ul class="space-y-3 text-lg text-gray-600">
+                                    <li class="flex items-start"><svg class="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span><strong class="text-gray-700">Stateless:</strong> O servidor não precisa armazenar o estado da sessão, facilitando a escalabilidade.</span></li>
+                                    <li class="flex items-start"><svg class="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span><strong class="text-gray-700">Seguro:</strong> Os tokens são assinados digitalmente, garantindo a integridade dos dados e a autenticidade do remetente.</span></li>
+                                    <li class="flex items-start"><svg class="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span><strong class="text-gray-700">Padrão de Mercado:</strong> Amplamente adotado e com suporte em diversas linguagens e frameworks.</span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-yellow-600 mb-3">Possível Alternativa</h4>
+                                <p class="text-lg text-gray-600"><strong>Sessões baseadas em Cookies:</strong> Uma abordagem mais tradicional, onde o servidor armazena os dados da sessão, mas pode ser mais complexa de escalar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 12: Documentação -->
+                <section class="slide">
+                    <div class="slide-header">Documentação: Swagger (OpenAPI)</div>
+                    <div class="w-full grid grid-cols-2 gap-12 items-center">
+                        <div class="text-center">
+                             <h3 class="text-4xl font-bold text-gray-800">Swagger UI</h3>
+                            <svg class="h-56 w-56 mx-auto my-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#85ea2d" d="M63.999 124.945c-33.607 0-60.95-27.34-60.95-60.949C3.05 30.388 30.392 3.048 64 3.048s60.95 27.342 60.95 60.95c0 33.607-27.343 60.946-60.95 60.946z"/><path fill="#173647" d="M40.3 43.311c-.198 2.19.072 4.454-.073 6.668-.173 2.217-.444 4.407-.888 6.596-.615 3.126-2.56 5.489-5.24 7.458 5.218 3.396 5.807 8.662 6.152 14.003.172 2.88.098 5.785.394 8.638.221 2.215 1.082 2.782 3.372 2.854.935.025 1.894 0 2.978 0v6.842c-6.768 1.156-12.354-.762-13.734-6.496a39.329 39.329 0 0 1-.836-6.4c-.148-2.287.097-4.577-.074-6.864-.492-6.277-1.305-8.393-7.308-8.689v-7.8c.441-.1.86-.174 1.302-.223 3.298-.172 4.701-1.182 5.414-4.43a37.512 37.512 0 0 0 .616-5.536c.247-3.569.148-7.21.763-10.754.86-5.094 4.01-7.556 9.254-7.852 1.476-.074 2.978 0 4.676 0v6.99c-.714.05-1.33.147-1.969.147-4.258-.148-4.48 1.304-4.8 4.848zm8.195 16.193h-.099c-2.462-.123-4.578 1.796-4.702 4.258-.122 2.485 1.797 4.603 4.259 4.724h.295c2.436.148 4.527-1.724 4.676-4.16v-.245c.05-2.486-1.944-4.527-4.43-4.577zm15.43 0c-2.386-.074-4.38 1.796-4.454 4.159 0 .149 0 .271.024.418 0 2.684 1.821 4.406 4.578 4.406 2.707 0 4.406-1.772 4.406-4.553-.025-2.682-1.823-4.455-4.554-4.43Zm15.801 0a4.596 4.596 0 0 0-4.676 4.454 4.515 4.515 0 0 0 4.528 4.528h.05c2.264.394 4.553-1.796 4.701-4.429.122-2.437-2.092-4.553-4.604-4.553Zm21.682.369c-2.855-.123-4.284-1.083-4.996-3.79a27.444 27.444 0 0 1-.811-5.292c-.198-3.298-.174-6.62-.395-9.918-.516-7.826-6.177-10.557-14.397-9.205v6.792c1.304 0 2.313 0 3.322.025 1.748.024 3.077.69 3.249 2.634.172 1.772.172 3.568.344 5.365.346 3.57.542 7.187 1.157 10.706.542 2.904 2.536 5.07 5.02 6.841-4.355 2.929-5.636 7.113-5.857 11.814-.122 3.223-.196 6.472-.368 9.721-.148 2.953-1.181 3.913-4.16 3.987-.835.024-1.648.098-2.583.148v6.964c1.748 0 3.347.1 4.946 0 4.971-.295 7.974-2.706 8.96-7.531.417-2.658.662-5.34.737-8.023.171-2.46.148-4.946.394-7.382.369-3.815 2.116-5.389 5.93-5.636a5.161 5.161 0 0 0 1.06-.245v-7.801c-.64-.074-1.084-.148-1.552-.173zM64 6.1c31.977 0 57.9 25.92 57.9 57.898 0 31.977-25.923 57.899-57.9 57.899-31.976 0-57.898-25.922-57.898-57.9C6.102 32.023 32.024 6.101 64 6.101m0-6.1C28.71 0 0 28.71 0 64c0 35.288 28.71 63.998 64 63.998 35.289 0 64-28.71 64-64S99.289.002 64 .002Z"/></svg>
+                        </div>
+                        <div>
+                            <div class="mb-8">
+                                <h4 class="text-2xl font-bold text-blue-600 mb-3">Por que utilizar?</h4>
+                                <ul class="space-y-3 text-lg text-gray-600">
+                                    <li class="flex items-start"><svg class="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span><strong class="text-gray-700">Documentação Interativa:</strong> Permite que os desenvolvedores testem os endpoints da API diretamente pelo navegador.</span></li>
+                                    <li class="flex items-start"><svg class="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span><strong class="text-gray-700">Fonte Única de Verdade:</strong> A documentação é gerada a partir do próprio código, garantindo que esteja sempre atualizada.</span></li>
+                                    <li class="flex items-start"><svg class="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span><strong class="text-gray-700">Facilita a Integração:</strong> Clarifica o "contrato" da API, acelerando o desenvolvimento paralelo entre frontend e backend.</span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-yellow-600 mb-3">Possível Alternativa</h4>
+                                <p class="text-lg text-gray-600"><strong>Postman Documentation:</strong> Outra ferramenta excelente, mas que exige a manutenção manual da coleção de requisições.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 13: Arquitetura do Projeto -->
+                <section class="slide">
+                    <div class="slide-header">Arquitetura do Projeto</div>
+                    <div class="w-full grid grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-800 mb-6 text-center">Estrutura Modular e Limpa</h3>
+                            <div class="bg-gray-800 text-white font-mono text-base rounded-lg p-6 h-auto w-10/12 mx-auto">
+                                <p><span>PersonaCrew/</span></p>
+                                <p class="pl-4">├── 📁 <span class="text-blue-400">frontend/</span> (Next.js)</p>
+                                <p class="pl-8">├── 📁 app/</p>
+                                <p class="pl-8">├── 📁 components/</p>
+                                <p class="pl-8">└── 📁 lib/</p>
+                                <p class="pl-4">├── 📁 <span class="text-yellow-400">backend/</span> (Express.js)</p>
+                                <p class="pl-8">├── 📁 config/</p>
+                                <p class="pl-8">├── 📁 controllers/</p>
+                                <p class="pl-8">├── 📁 middleware/</p>
+                                <p class="pl-8">├── 📁 models/</p>
+                                <p class="pl-8">├── 📁 routes/</p>
+                                <p class="pl-8">└── 📄 server.js</p>
+                                <p class="pl-4">├── 📁 <span class="text-green-400">shared/</span></p>
+                                <p class="pl-4">└── 📁 <span class="text-gray-400">docs/</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Fluxo de Dados</h3>
+                            <div class="w-full overflow-visible">
+                                <svg viewBox="0 0 450 320" class="w-full h-full max-w-2xl mx-auto">
+                                    <defs>
+                                        <marker id="arrow-data-vertical" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#9ca3af" />
+                                        </marker>
+                                    </defs>
+                                    <!-- Vertical Line -->
+                                    <line x1="225" y1="50" x2="225" y2="270" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-data-vertical)"/>
+                        
+                                    <!-- Node 1: Input -->
+                                    <g transform="translate(0, 10)">
+                                        <rect x="0" y="0" width="450" height="70" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+                                        <g transform="translate(45, 35)">
+                                            <circle cx="0" cy="0" r="25" fill="#eef2ff"/>
+                                            <g transform="scale(1.2) translate(-12, -12)">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="#3B82F6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <polyline points="17 8 12 3 7 8" stroke="#3B82F6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <line x1="12" y1="3" x2="12" y2="15" stroke="#3B82F6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </g>
+                                        </g>
+                                        <text x="90" y="28" class="font-bold text-xl text-gray-800">Upload & Extração</text>
+                                        <text x="90" y="52" class="text-lg text-gray-500">Arquivos são enviados e o texto é extraído.</text>
+                                    </g>
+                        
+                                    <!-- Node 2: Processing -->
+                                    <g transform="translate(0, 125)">
+                                        <rect x="0" y="0" width="450" height="70" rx="12" fill="#fffbeb" stroke="#fde68a"/>
+                                        <g transform="translate(45, 35)">
+                                            <circle cx="0" cy="0" r="25" fill="#fef3c7"/>
+                                            <g transform="scale(1.2) translate(-12, -12)">
+                                                <path d="M3 3h18v4l-7 8v6l-4 2v-8L3 7V3z" stroke="#FBBF24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </g>
+                                        </g>
+                                        <text x="90" y="28" class="font-bold text-xl text-gray-800">Matching & Categorização</text>
+                                        <text x="90" y="52" class="text-lg text-gray-500">Texto é comparado com as personas.</text>
+                                    </g>
+                        
+                                    <!-- Node 3: Output -->
+                                    <g transform="translate(0, 240)">
+                                        <rect x="0" y="0" width="450" height="70" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+                                        <g transform="translate(45, 35)">
+                                            <circle cx="0" cy="0" r="25" fill="#eef2ff"/>
+                                            <g transform="scale(1.2) translate(-12, -12)">
+                                                <path d="M3 3v18h18" stroke="#3B82F6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M7 12v4h4v-4h-4z" stroke="#3B82F6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M12 8v8h4V8h-4z" stroke="#3B82F6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M17 4v12h4V4h-4z" stroke="#3B82F6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </g>
+                                        </g>
+                                        <text x="90" y="28" class="font-bold text-xl text-gray-800">Visualização no Dashboard</text>
+                                        <text x="90" y="52" class="text-lg text-gray-500">Resultados são exibidos para análise.</text>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer"><div class="ceos-logo-sm">CEOS<span>.</span>JR</div></div>
+                </section>
+
+                <!-- Slide 12: Equipe e Metodologia -->
+                <section class="slide">
+                    <div class="slide-header">Equipe e Metodologia</div>
+                    <div class="w-full grid grid-cols-2 gap-12 items-start">
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Composição da Equipe (7 Pessoas)</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="card p-4 flex flex-col items-center justify-center text-center">
+                                    <svg class="h-16 w-16 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 11.1l4.5 2.4-4.5 2.4-4.5-2.4 4.5-2.4z"></path><path d="M12 8v4.2"></path><path d="m16.5 13.5 4.5 2.4"></path><path d="m3 15.9 4.5-2.4"></path></svg>
+                                    <h4 class="font-bold mt-2 text-lg text-gray-800">Product Owner</h4>
+                                    <p class="text-blue-600 font-black text-2xl">1</p>
+                                </div>
+                                <div class="card p-4 flex flex-col items-center justify-center text-center">
+                                    <svg class="h-16 w-16 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 2.5a2.5 2.5 0 0 1 3 3L6 22H3v-3L15.5 2.5z"></path><path d="m13.5 5.5 3 3"></path></svg>
+                                    <h4 class="font-bold mt-2 text-lg text-gray-800">UI/UX Designer</h4>
+                                    <p class="text-blue-600 font-black text-2xl">1</p>
+                                </div>
+                                <div class="card p-4 flex flex-col items-center justify-center text-center">
+                                    <svg class="h-16 w-16 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.055a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                    <h4 class="font-bold mt-2 text-lg text-gray-800">Scrum Master</h4>
+                                    <p class="text-blue-600 font-black text-2xl">1</p>
+                                </div>
+                                <div class="card p-4 flex flex-col items-center justify-center text-center">
+                                    <svg class="h-16 w-16 text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+                                    <h4 class="font-bold mt-2 text-lg text-gray-800">Frontend Devs</h4>
+                                    <p class="text-yellow-600 font-black text-2xl">2</p>
+                                </div>
+                                <div class="card p-4 flex flex-col items-center justify-center text-center col-span-2">
+                                    <svg class="h-16 w-16 text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" /><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" /></svg>
+                                    <h4 class="font-bold mt-2 text-lg text-gray-800">Backend Devs</h4>
+                                    <p class="text-yellow-600 font-black text-2xl">2</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center w-full">
+                            <h3 class="text-3xl font-bold text-gray-800 mb-10 -mt-4 text-center">Metodologia Scrum</h3>
+                            <div class="p-4 relative z-20 overflow-visible w-full flex justify-center" style="transform: scale(1.3); transform-origin: center;">
+                                <svg viewBox="0 0 400 400" class="w-full max-w-lg mx-auto">
+                                    <defs>
+                                        <marker id="arrow-head-circle" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#3B82F6" />
+                                        </marker>
+                                    </defs>
+                                    
+                                    <circle cx="200" cy="200" r="140" fill="none" stroke="#e0e7ff" stroke-width="4"/>
+                                    <path d="M 200, 60 A 140 140 0 1 1 199.9, 60" fill="none" stroke="#3B82F6" stroke-width="4" stroke-dasharray="10 8" marker-end="url(#arrow-head-circle)"/>
+                                    
+                                    <g>
+                                        <circle cx="200" cy="200" r="80" fill="#fffbeb" stroke="#FBBF24" stroke-width="2"/>
+                                        <text x="200" y="195" text-anchor="middle" class="font-bold text-2xl fill-yellow-800">Sprint</text>
+                                        <text x="200" y="220" text-anchor="middle" class="text-sm fill-yellow-700">Ciclo de 2 Semanas</text>
+                                    </g>
+                                    
+                                    <g id="planning-group" class="scrum-tooltip" transform="translate(170, 20)">
+                                        <circle cx="30" cy="30" r="30" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+                                        <path d="M34.5 22.5h-9a1 1 0 00-1 1v13a1 1 0 001 1h9a1 1 0 001-1v-13a1 1 0 00-1-1zm-9-2a3 3 0 013-3h3a3 3 0 013 3v1" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+                                        <text x="30" y="48" text-anchor="middle" class="text-xs font-semibold fill-gray-700">Planejamento</text>
+                                        <foreignObject class="tooltip-text" id="planning-tooltip" style="bottom: 100%; left: 50%; transform: translateX(-50%);"></foreignObject>
+                                    </g>
+                        
+                                    <g id="daily-group" class="scrum-tooltip" transform="translate(320, 170)">
+                                        <circle cx="30" cy="30" r="30" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+                                        <circle cx="30" cy="30" r="7" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                                        <path d="M30 23v-3m0 20v-3m7-7h3m-20 0h3" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+                                        <text x="30" y="48" text-anchor="middle" class="text-xs font-semibold fill-gray-700">Daily Scrum</text>
+                                        <foreignObject class="tooltip-text" id="daily-tooltip" style="left: 110%; top: 50%; transform: translateY(-50%);"></foreignObject>
+                                    </g>
+                        
+                                    <g id="review-group" class="scrum-tooltip" transform="translate(170, 320)">
+                                        <circle cx="30" cy="30" r="30" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+                                        <path d="M26.5 26.5a6 6 0 118.5 8.5l-4.5 4.5-8.5-8.5 4.5-4.5z" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="30.5" cy="30.5" r="2.5" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                                        <text x="30" y="48" text-anchor="middle" class="text-xs font-semibold fill-gray-700">Revisão</text>
+                                        <foreignObject class="tooltip-text" id="review-tooltip" style="top: 100%; left: 50%; transform: translateX(-50%);"></foreignObject>
+                                    </g>
+                        
+                                    <g id="retro-group" class="scrum-tooltip" transform="translate(20, 170)">
+                                        <circle cx="30" cy="30" r="30" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+                                        <path d="M25.5 34.5a5 5 0 01-5-5c0-2.5 2-5 5-5s5 2.5 5 5h-5zm9 0a5 5 0 01-5 5c0 2.5 2 5 5 5s5-2.5 5-5h-5z" transform="rotate(90 30 30)" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <text x="30" y="48" text-anchor="middle" class="text-xs font-semibold fill-gray-700">Retrospectiva</text>
+                                        <foreignObject class="tooltip-text" id="retro-tooltip" style="right: 105%; top: 50%; transform: translateY(-50%);"></foreignObject>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer"><div class="ceos-logo-sm">CEOS<span>.</span>JR</div></div>
+                </section>
+                
+                <!-- Slide 13: Gestão Ágil -->
+                <section class="slide">
+                    <div class="slide-header">Gestão Ágil</div>
+                    <div class="w-full text-center">
+                        <h2 class="text-5xl font-bold text-gray-800 mb-6">Ferramentas para Organização</h2>
+                        <p class="text-2xl text-gray-600 max-w-5xl mx-auto mb-12">Para garantir a visibilidade e o alinhamento do projeto, utilizaremos ferramentas de organização.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div class="card">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jira/jira-original.svg" class="h-24 w-24 mx-auto mb-6"/>
+                                <h4 class="text-3xl font-bold text-gray-800 mb-3">Jira</h4>
+                                <p class="text-lg text-gray-600">Ideal para um planejamento detalhado de Sprints, gestão de backlog, e acompanhamento de bugs. Oferece relatórios avançados para medir a produtividade da equipe. Ideal se tiver expansão da equipe.</p>
+                            </div>
+                            <div class="card">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/trello/trello-plain.svg" class="h-24 w-24 mx-auto mb-6"/>
+                                <h4 class="text-3xl font-bold text-gray-800 mb-3">Trello</h4>
+                                <p class="text-lg text-gray-600">Perfeito para a gestão do dia a dia com seu sistema de quadros Kanban. Sua simplicidade visual facilita o acompanhamento rápido do status de cada tarefa. Nossa escolha pelo tamanho da equipe, não precisa mais que isso.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 14: Cronograma Proposto -->
+                <section class="slide">
+                    <div class="slide-header">Cronograma Proposto (8 Sprints)</div>
+                    <div class="w-full">
+                        <h2 class="text-5xl font-bold text-gray-800 mb-10 text-center">Do Conceito ao Deploy em 16 Semanas</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-left text-lg">
+                            <!-- Mês 1 -->
+                            <div class="space-y-6">
+                                <h3 class="text-2xl font-bold text-blue-600 border-b-2 border-blue-200 pb-2">Mês 1: Preparação</h3>
+                                <div class="card p-4">
+                                    <p class="font-bold text-xl">Sprint 1</p>
+                                    <p class="text-base text-gray-600">Definição do MVP, requisitos e início do Design System.</p>
+                                </div>
+                                <div class="card p-4">
+                                    <p class="font-bold text-xl">Sprint 2</p>
+                                    <p class="text-base text-gray-600">Finalização do Design System e setup da infraestrutura.</p>
+                                </div>
+                            </div>
+                             <!-- Mês 2 -->
+                            <div class="space-y-6">
+                                <h3 class="text-2xl font-bold text-blue-600 border-b-2 border-blue-200 pb-2">Mês 2: Develop</h3>
+                                <div class="card p-4">
+                                    <p class="font-bold text-xl">Sprint 3</p>
+                                    <p class="text-base text-gray-600">Backend: API de autenticação e estrutura do banco de dados.</p>
+                                </div>
+                                <div class="card p-4">
+                                    <p class="font-bold text-xl">Sprint 4</p>
+                                    <p class="text-base text-gray-600">Backend: Sistema de upload. Frontend: Layout principal.</p>
+                                </div>
+                            </div>
+                             <!-- Mês 3 -->
+                            <div class="space-y-6">
+                                <h3 class="text-2xl font-bold text-blue-600 border-b-2 border-blue-200 pb-2">Mês 3: Integração</h3>
+                                <div class="card p-4">
+                                    <p class="font-bold text-xl">Sprint 5</p>
+                                    <p class="text-base text-gray-600">Integração frontend/backend e gestão de Personas.</p>
+                                </div>
+                                <div class="card p-4">
+                                    <p class="font-bold text-xl">Sprint 6</p>
+                                    <p class="text-base text-gray-600">Implementação do processamento de CVs e início dos testes.</p>
+                                </div>
+                            </div>
+                             <!-- Mês 4 -->
+                            <div class="space-y-6">
+                                <h3 class="text-2xl font-bold text-yellow-600 border-b-2 border-yellow-200 pb-2">Mês 4: Refinamento</h3>
+                                <div class="card p-4">
+                                    <p class="font-bold text-xl">Sprint 7</p>
+                                    <p class="text-base text-gray-600">Polimento da UI/UX com base em feedbacks e visualizador de CV.</p>
+                                </div>
+                                <div class="card p-4">
+                                    <p class="font-bold text-xl">Sprint 8</p>
+                                    <p class="text-base text-gray-600">Testes de performance, documentação e deploy final.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 15: Roadmap -->
+                <section class="slide">
+                    <div class="slide-header">Funcionalidades/MVP e Expansão</div>
+                    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div class="card border-blue-500 border-2">
+                             <h3 class="text-3xl font-bold text-gray-800 mb-6 text-center">MVP - Produto Mínimo Viável</h3>
+                             <ul class="space-y-4 text-lg text-gray-700">
+                                <li class="flex items-center"><svg class="h-8 w-8 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>Autenticação e Gestão de Processos</li>
+                                <li class="flex items-center"><svg class="h-8 w-8 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>Criação de Personas com palavras-chave</li>
+                                <li class="flex items-center"><svg class="h-8 w-8 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>Upload múltiplo de arquivos (PDF, DOCX)</li>
+                                <li class="flex items-center"><svg class="h-8 w-8 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>Processamento e categorização automática</li>
+                                <li class="flex items-center"><svg class="h-8 w-8 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>Dashboard organizado por persona</li>
+                                <li class="flex items-center"><svg class="h-8 w-8 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>Visualizador de currículo com highlights</li>
+                             </ul>
+                        </div>
+                        <div class="card bg-gray-50">
+                            <h3 class="text-3xl font-bold text-gray-800 mb-6 text-center">Funcionalidades Futuras</h3>
+                            <div class="grid grid-cols-2 gap-6 text-left text-lg">
+                                <div class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg><p>Scoring de compatibilidade</p></div>
+                                <div class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg><p>API para terceiros</p></div>
+                                <div class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg><p>Analytics e relatórios</p></div>
+                                <div class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg><p>Colaboração multi-usuário</p></div>
+                                <div class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg><p>Integração LinkedIn</p></div>
+                                <div class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg><p>Templates de personas</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer"><div class="ceos-logo-sm">CEOS<span>.</span>JR</div></div>
+                </section>
+
+                <!-- Slide 11: Modelo de Negócio -->
+                <section class="slide">
+                    <div class="slide-header">Modelo de Negócio (SaaS)</div>
+                    <div class="w-full">
+                        <h2 class="text-6xl font-bold text-gray-800 mb-4 text-center">Simples, Acessível e Escalável</h2>
+                        <p class="text-2xl text-gray-600 max-w-5xl mx-auto mb-12 text-center">Planos que crescem com a necessidade do cliente, com um ponto de entrada gratuito para validação.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                            <div class="card p-8">
+                                <h3 class="text-3xl font-bold mb-4">Freemium</h3>
+                                <p class="text-5xl font-extrabold mb-6">R$0</p>
+                                <ul class="space-y-3 text-lg text-gray-500">
+                                    <li><span class="font-bold text-blue-500">20</span> CVs/mês</li>
+                                    <li><span class="font-bold text-blue-500">3</span> Personas</li>
+                                    <li>-</li>
+                                </ul>
+                            </div>
+                            <div class="card p-8 border-2 border-blue-500 relative">
+                                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-sm font-bold px-4 py-2 rounded-full">POPULAR</div>
+                                <h3 class="text-3xl font-bold mb-4">Básico</h3>
+                                <p class="text-5xl font-extrabold mb-6">R$25</p>
+                                <ul class="space-y-3 text-lg text-gray-500">
+                                    <li><span class="font-bold text-blue-500">500</span> CVs/mês</li>
+                                    <li><span class="font-bold text-blue-500">5</span> Personas</li>
+                                    <li>-</li>
+                                </ul>
+                            </div>
+                            <div class="card p-8">
+                                <h3 class="text-3xl font-bold mb-4">Profissional</h3>
+                                <p class="text-5xl font-extrabold mb-6">R$40</p>
+                                <ul class="space-y-3 text-lg text-gray-600">
+                                    <li><span class="font-bold text-blue-500">2.000</span> CVs/mês</li>
+                                    <li><span class="font-bold text-blue-500">15</span> Personas</li>
+                                    <li>Analytics</li>
+                                </ul>
+                            </div>
+                            <div class="card p-8">
+                                <h3 class="text-3xl font-bold mb-4">Enterprise</h3>
+                                <p class="text-5xl font-extrabold mb-6">R$120+</p>
+                                <ul class="space-y-3 text-lg text-gray-500">
+                                    <li><span class="font-bold text-blue-500">Ilimitado</span></li>
+                                    <li><span class="font-bold text-blue-500">Ilimitado</span></li>
+                                    <li>API + Suporte</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer"><div class="ceos-logo-sm">CEOS<span>.</span>JR</div></div>
+                </section>
+
+                <!-- Slide 12: Conclusão -->
+                <section class="slide">
+                    <div class="slide-header">Conclusão</div>
+                    <div class="w-full text-center">
+                        <h2 class="text-6xl font-bold text-gray-800 mb-12">Por que o Persona<span class="highlight-yellow">Crew</span> é o projeto ideal?</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                            <div class="card text-left p-8">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                <h4 class="text-2xl font-bold mb-3 text-gray-800">Valor Imediato</h4>
+                                <p class="text-lg text-gray-500">Resolve uma dor real e imediata da CEOS Jr. e de outras empresas.</p>
+                            </div>
+                            <div class="card text-left p-8">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                                <h4 class="text-2xl font-bold mb-3 text-gray-800">Aprendizado</h4>
+                                <p class="text-lg text-gray-500">Capacitação da equipe com uma stack moderna e relevante para o mercado.</p>
+                            </div>
+                            <div class="card text-left p-8">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                                <h4 class="text-2xl font-bold mb-3 text-gray-800">Potencial Comercial</h4>
+                                <p class="text-lg text-gray-500">Alta demanda de mercado por soluções de RH focadas em PMEs e EJs.</p>
+                            </div>
+                            <div class="card text-left p-8">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                <h4 class="font-bold text-2xl mb-3 text-gray-800">Portfólio Sólido</h4>
+                                <p class="text-lg text-gray-500">Um case técnico robusto para atrair novos clientes e membros.</p>
+                            </div>
+                        </div>
+                        <div class="mt-16">
+                            <p class="text-2xl text-gray-600">Iniciar com um <strong>MVP focado</strong>, validar internamente e <strong>expandir com base no feedback real</strong>.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 13: Despedida -->
+                <section class="slide bg-blue-gradient text-white">
+                     <div class="absolute top-8 left-8">
+                        <svg class="h-32 w-auto" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.225 56.904" fill="none"><g clip-path="url(#clip0_goodbye)"><path d="M34.648 8.88c-2.7-1.4-6.328-3.481-9.663-5.317L5.34 14.992l19.672 11.425c3.67-2.172 7.266-4.3 10.86-6.427q5.113-3.028 10.225-6.058a6.744 6.744 0 0 1 1.319-.668 1.715 1.715 0 0 1 2.343 1.388 9.258 9.258 0 0 1 .072 1.646c.013 7.982-.011 15.963.056 23.944a3.44 3.44 0 0 1-2.064 3.251q-9.143 5.293-18.254 10.64c-.951.555-1.927 1.069-2.848 1.67a3.048 3.048 0 0 1-3.54.016c-5.164-3.049-10.359-6.046-15.544-9.061-1.9-1.106-3.783-2.255-5.72-3.3A3.182 3.182 0 0 1 .025 40.3c.061-2.8-.03-5.613-.025-8.42 0-.578 0 .247 0-1.622 2.2-.026 3.506.869 3.523 2.784.022 2.416.005 4.831.005 7.285L24.971 52.76 46.251 40.4V17.935c-1.749 1.007-3.313 1.88-4.851 2.8-4.819 2.876-9.646 5.739-14.428 8.675a3.314 3.314 0 0 1-3.825.061c-6.9-4.107-13.838-8.16-20.76-12.234-.189-.112-.369-.241-.551-.364-1.855-1.26-1.9-2.653.027-3.82 4.144-2.5 8.349-4.905 12.532-7.342 2.948-1.717 5.917-3.4 8.845-5.145A3.038 3.038 0 0 1 26.51.406Q31.554 3.221 36.585 6.06c.331.187 2.075 1.18 2.306 1.326-.5 1.474-3.041 2.119-4.243 1.494z" fill="#fff"/><path d="M75.837 170.812l-.077-4.18 9.363 5.178.077 4.18Z" fill="#ff9100" transform="translate(-61.835 -136.005)"/><path d="M90.846 218.743l-.077-4.18 6.471 3.709.077 4.18Z" fill="#ff9100" transform="translate(-74.086 -175.126)"/></g><defs><clipPath id="clip0_goodbye"><path fill="#fff" d="M0 0h50.225v56.904H0z"/></clipPath></defs></svg>
+                    </div>
+                    <div class="text-center z-10">
+                        <h2 class="text-8xl font-bold mb-6">Obrigado!</h2>
+                        <p class="text-4xl font-light mb-12">Vamos construir o futuro da CEOS Jr. juntos.</p>
+                        <div class="mt-16">
+                             <h1 class="text-6xl font-black">CEOS<span>.</span>JR</h1>
+                             <style>h1 span { color: #FBBF24; }</style>
+                        </div>
+                         <p class="text-3xl font-semibold mt-16">Perguntas?</p>
+                    </div>
+                </section>
+
+            </div>
+            
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div id="next-slide" class="nav-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </div>
+    </div>
+
+    <script>
+        const slidesWrapper = document.querySelector('.slides-wrapper');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev-slide');
+        const nextBtn = document.getElementById('next-slide');
+        const progressBar = document.getElementById('progress-bar');
+
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function updateSlides() {
+            slidesWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            const progressPercentage = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateSlides();
+                }
+            } else if (e.key === 'ArrowLeft') {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlides();
+                }
+            }
+        });
+
+        // Tooltip logic
+        const tooltipsData = [
+            {
+                triggerId: 'planning-group',
+                tooltipId: 'planning-tooltip',
+                text: 'Definição do objetivo e das funcionalidades do próximo ciclo.'
+            },
+            {
+                triggerId: 'daily-group',
+                tooltipId: 'daily-tooltip',
+                text: 'Encontros rápidos para sincronização da equipe.'
+            },
+            {
+                triggerId: 'review-group',
+                tooltipId: 'review-tooltip',
+                text: 'Apresentação do produto desenvolvido para coletar feedback.'
+            },
+            {
+                triggerId: 'retro-group',
+                tooltipId: 'retro-tooltip',
+                text: 'Análise interna da equipe para melhorias contínuas no processo.'
+            }
+        ];
+
+        tooltipsData.forEach(info => {
+            const trigger = document.getElementById(info.triggerId);
+            const tooltip = document.getElementById(info.tooltipId);
+
+            if (trigger && tooltip) {
+                tooltip.textContent = info.text;
+
+                trigger.addEventListener('mouseenter', () => {
+                    const triggerRect = trigger.getBoundingClientRect();
+                    const slideRect = trigger.closest('.slide').getBoundingClientRect();
+                    
+                    tooltip.style.left = `${triggerRect.left - slideRect.left + (triggerRect.width / 2)}px`;
+                    tooltip.style.top = `${triggerRect.top - slideRect.top}px`;
+                    tooltip.style.transform = 'translateX(-50%) translateY(-110%)';
+                    tooltip.style.visibility = 'visible';
+                    tooltip.style.opacity = '1';
+                });
+
+                trigger.addEventListener('mouseleave', () => {
+                    tooltip.style.visibility = 'hidden';
+                    tooltip.style.opacity = '0';
+                });
+            }
+        });
+
+        // Initial setup
+        updateSlides();
+    </script>
+</body>
+</html>
